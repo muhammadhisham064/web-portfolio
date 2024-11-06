@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;  */
+}
+
+/* .eyes {
+    display: flex;
+    gap: 20px; 
+}
+
+.eye {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.pupil {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+} */
+
+.work{
+    gap: 10vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 150vh;
+}
+
+.cards {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+}
+
+#card-one {
+    top: 130%;
+    background-image: url(img/work1.webp);
+}
+
+#card-two {
+    top: 230%;
+    background-image: url(img/work1.webp);
+}
+
+#card-three {
+    top: 250%;
+    background-image: url(img/work1.webp);
+}
+
+.work .text{
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.text-img{
+    width: 5vw;
+    height: 5vw;
+    /* background-color: #fff; */
+    /* background-image: url(Blue\ Modern\ G\ Letter\ Technology\ Logo\ Design\ \(4\).png); */
+    background-size: cover;
+    background-position: center;
+}
+
+.text h1{
+    font-size: 3vw;
+    color: #333;
+    text-align: center;
+}
+
+.text p{
+    font-size: 1vw;
+    color: rgb(126, 126, 126);
+    text-align: center;
+}
+
+</style>
+<body>
+    <!-- <div class="eyes">
+        <div class="eye">
+            <div class="pupil"></div>
+        </div>
+        <div class="eye">
+            <div class="pupil"></div>
+        </div>
+    </div>
+    
+ -->
+
+
+ <div class="work">
+    <div class="text">
+        <div class="text-img"></div>
+        <h1>Lates Work</h1>
+
+    </div>
+    <div class="cards" id="card-one"></div>
+    <div class="cards" id="card-two"></div>
+    <div class="cards" id="card-three"></div>
+</div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- For Lottie files   -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+    
+    <script>
+// const eyes = document.querySelectorAll('.eye');
+
+// document.addEventListener('mousemove', (event) => {
+//     eyes.forEach((eye) => {
+//         const { left, top, width, height } = eye.getBoundingClientRect();
+//         const eyeCenterX = left + width / 2;
+//         const eyeCenterY = top + height / 2;
+
+//         // Calculate the angle between the eye center and the mouse position
+//         const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+
+//         // Calculate the pupil position
+//         const pupilRadius = 10; // Adjust to control how far the pupil can move
+//         const pupilX = Math.cos(angle) * pupilRadius;
+//         const pupilY = Math.sin(angle) * pupilRadius;
+
+//         // Move the pupil
+//         const pupil = eye.querySelector('.pupil');
+//         pupil.style.transform = `translate(-50%, -50%) translate(${pupilX}px, ${pupilY}px)`;
+//     });
+// });
+
+function work_anim() {
+    
+    var tl = gsap.timeline({scrollTrigger:{
+        trigger:".work",
+        // markers:true,
+        start:"top top",
+        end:"bottom bottom",
+        scrub:2,
+        pin:true
+    }});
+    tl
+    .to(".text",{
+        top: "-7%",
+    },'a')
+    .to("#card-one",{
+        top: "35%",
+    },'a')
+    .to("#card-two",{
+        top: "130%"
+    },'a')
+    .to("#card-two",{
+        top: "42%"
+    },'b')
+    .to("#card-one",{
+        width: "65%",
+        height: "65vh"
+    },'b')
+    .to("#card-three",{
+        top: "130%"
+    }, 'b')
+    .to("#card-three",{
+        top: "50%"
+    }, 'c')
+    .to("#card-two",{
+        width: "70%",
+        height: "70vh"
+    },'c')
+    }
+    
+    
+    work_anim()
+    </script>
+</body>
+</html>
